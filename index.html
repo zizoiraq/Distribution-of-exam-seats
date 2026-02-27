@@ -34,11 +34,55 @@
             padding: 30px;
             margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        
+        .university-header {
+            color: #1e3c72;
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+            border-bottom: 3px solid #3498db;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .college-name {
+            color: #2a5298;
+            font-size: 1.8em;
+            font-weight: bold;
+            margin: 10px 0 5px 0;
+        }
+        
+        .department-name {
+            color: #3498db;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        
+        .designer-name {
+            color: #e67e22;
+            font-size: 1.2em;
+            margin: 5px 0;
+            font-style: italic;
+        }
+        
+        .exam-title {
+            color: #27ae60;
+            font-size: 2em;
+            font-weight: bold;
+            margin: 15px 0 5px 0;
+            background: #f0f9f0;
+            padding: 10px;
+            border-radius: 50px;
+            display: inline-block;
+            border: 2px solid #27ae60;
         }
         
         h1 {
             color: #333;
-            margin-bottom: 20px;
+            margin: 20px 0;
             text-align: center;
             font-size: 2.2em;
         }
@@ -561,11 +605,15 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>
-                🎓 نظام توزيع الطلبة في قاعات الامتحانات
-                <small>مع التحقق التلقائي من سعة القاعات</small>
-            </h1>
+            <!-- الهيدر المطلوب -->
+            <div class="university-header">الجامعة التقنية الشمالية</div>
+            <div class="college-name">الكلية التقنية الهندسية</div>
+            <div class="department-name">تقنيات هندسة الصناعات الكيمياوية والنفطية</div>
+            <div class="designer-name">تصميم عزام عصام</div>
+            <div class="exam-title">📋 توزيع الطلبة على المقاعد الامتحانية</div>
             
+            <!-- العنوان الفرعي (كان الهيدر القديم) -->
+                
             <div class="info-box">
                 ⚡ كل عمود من نفس القسم | الأعمدة المتجاورة مختلفة | أقصى 3 أقسام في القاعة | كل طالب له رقم تسلسلي
             </div>
