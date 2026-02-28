@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نظام توزيع الطلبة - مع التحقق من السعة</title>
+    <title>نظام توزيع الطلبة - الجامعة التقنية الشمالية</title>
     
     <!-- المكتبات الخارجية -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -28,61 +28,56 @@
             margin: 0 auto;
         }
         
+        /* الهيدر الجديد */
+        .university-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #4a69bd 100%);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            border-radius: 15px 15px 0 0;
+            margin-bottom: 5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border-bottom: 3px solid #f39c12;
+        }
+        
+        .university-header h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .university-header h3 {
+            font-size: 1.5em;
+            margin-bottom: 8px;
+            color: #f1c40f;
+        }
+        
+        .university-header h4 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #ecf0f1;
+        }
+        
+        .university-header .designer-name {
+            font-size: 1.1em;
+            padding-top: 10px;
+            border-top: 2px dashed #f39c12;
+            display: inline-block;
+            color: #f39c12;
+            font-weight: bold;
+        }
+        
         .header {
             background: white;
-            border-radius: 15px;
+            border-radius: 0 0 15px 15px;
             padding: 30px;
             margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            text-align: center;
-        }
-        
-        .university-header {
-            color: #1e3c72;
-            font-size: 2.5em;
-            font-weight: bold;
-            margin-bottom: 5px;
-            border-bottom: 3px solid #3498db;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-        
-        .college-name {
-            color: #2a5298;
-            font-size: 1.8em;
-            font-weight: bold;
-            margin: 10px 0 5px 0;
-        }
-        
-        .department-name {
-            color: #3498db;
-            font-size: 1.5em;
-            font-weight: bold;
-            margin: 5px 0;
-        }
-        
-        .designer-name {
-            color: #e67e22;
-            font-size: 1.2em;
-            margin: 5px 0;
-            font-style: italic;
-        }
-        
-        .exam-title {
-            color: #27ae60;
-            font-size: 2em;
-            font-weight: bold;
-            margin: 15px 0 5px 0;
-            background: #f0f9f0;
-            padding: 10px;
-            border-radius: 50px;
-            display: inline-block;
-            border: 2px solid #27ae60;
         }
         
         h1 {
             color: #333;
-            margin: 20px 0;
+            margin-bottom: 20px;
             text-align: center;
             font-size: 2.2em;
         }
@@ -149,7 +144,7 @@
         
         .departments-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 15px;
             margin: 20px 0;
         }
@@ -174,7 +169,16 @@
             color: #555;
         }
         
-        .dept-input input {
+        .dept-input .dept-name-input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 0.95em;
+        }
+        
+        .dept-input .dept-count-input {
             width: 100%;
             padding: 10px;
             border: 2px solid #ddd;
@@ -183,7 +187,7 @@
             transition: border-color 0.3s;
         }
         
-        .dept-input input:focus {
+        .dept-input .dept-count-input:focus {
             outline: none;
             border-color: #3498db;
         }
@@ -371,7 +375,7 @@
             font-size: 0.9em;
         }
         
-        /* القاعات المعروضة */
+        /* القاعات المعروضة - تصميم عرضي */
         .halls-container {
             display: flex;
             flex-direction: column;
@@ -414,19 +418,34 @@
             font-size: 1.1em;
         }
         
+        /* السبورة */
+        .hall-board {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            font-size: 1.5em;
+            font-weight: bold;
+            border: 3px solid #f39c12;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            width: 100%;
+        }
+        
+        /* الكروبات */
         .groups-container {
             display: flex;
             gap: 25px;
             flex-wrap: wrap;
             justify-content: center;
-            margin-top: 20px;
         }
         
         .group {
             background: #f8f9fa;
             border-radius: 15px;
             padding: 15px;
-            min-width: 350px;
+            min-width: 400px;
             flex: 1;
             border: 2px solid #e0e0e0;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -443,77 +462,48 @@
             font-size: 1.1em;
         }
         
-        /* ترويسة السبورة - بدون حركات */
-        .board-header {
-            background: #8e44ad;
-            color: white;
-            text-align: center;
-            padding: 15px 10px;
-            margin: 10px 0 15px 0;
-            border-radius: 10px;
-            font-size: 1.4em;
-            font-weight: bold;
-            border: 3px solid #6c3483;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            width: 100%;
+        /* صفوف المقاعد */
+        .rows-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
         
-        .columns-container {
+        .row {
             display: flex;
-            gap: 15px;
+            gap: 10px;
             justify-content: center;
             flex-wrap: wrap;
         }
         
-        .column {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            flex: 1;
-            min-width: 90px;
-        }
-        
-        .column-header {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 10px 5px;
-            font-weight: bold;
-            font-size: 1em;
-            border-radius: 8px 8px 0 0;
-            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
-            margin-bottom: 5px;
-            border: 2px solid #1a252f;
-        }
-        
-        .column-dept-card {
+        .row-header {
+            width: 60px;
             background: #34495e;
             color: white;
-            text-align: center;
-            padding: 8px 5px;
-            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border-radius: 5px;
-            margin-bottom: 8px;
-            font-size: 0.95em;
-            border: 2px solid #2c3e50;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-weight: bold;
+            font-size: 0.9em;
         }
         
         .seat {
             background: white;
             border: 2px solid #ddd;
             border-radius: 6px;
-            padding: 8px 3px;
+            padding: 10px 5px;
             text-align: center;
-            font-size: 0.85em;
+            font-size: 0.9em;
             font-weight: bold;
             transition: all 0.2s;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin: 2px 0;
+            flex: 1;
+            min-width: 80px;
         }
         
         .seat:hover {
-            transform: scale(1.05);
+            transform: scale(1.02);
             z-index: 1;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
@@ -604,18 +594,22 @@
 </head>
 <body>
     <div class="container">
+        <!-- الهيدر الجديد -->
+        <div class="university-header">
+            <h2>الجامعة التقنية الشمالية</h2>
+            <h3>الكلية التقنية الهندسية الموصل</h3>
+            <h4>قسم تقنيات الصناعات الكيمياوية والنفطية</h4>
+            <div class="designer-name">تصميم: عزام عصام</div>
+        </div>
+        
         <div class="header">
-            <!-- الهيدر المطلوب -->
-            <div class="university-header">الجامعة التقنية الشمالية</div>
-            <div class="college-name">الكلية التقنية الهندسية - الموصل</div>
-            <div class="department-name">تقنيات هندسة الصناعات الكيمياوية والنفطية</div>
-            <div class="designer-name">تصميم عزام عصام</div>
-            <div class="exam-title">📋 توزيع الطلبة على المقاعد الامتحانية</div>
+            <h1>
+                🎓 نظام توزيع الطلبة في قاعات الامتحانات
+                <small>مع إمكانية تسمية الأقسام يدوياً</small>
+            </h1>
             
-            <!-- العنوان الفرعي (كان الهيدر القديم) -->
-                
             <div class="info-box">
-                ⚡ كل عمود من نفس القسم | الأعمدة المتجاورة مختلفة | ثلاثة اقسام في القاعة اقصى مايمكن | كل طالب له رقم تسلسلي
+                ⚡ كل عمود من نفس القسم | سبورة واحدة في كل قاعة | كل طالب له رقم تسلسلي
             </div>
             
             <div class="summary-box" id="globalSummary">
@@ -664,7 +658,7 @@
             </div>
             
             <div class="instruction-box">
-                <strong>📌 ملاحظة:</strong> كل طالب سيأخذ رقماً تسلسلياً في قسمه. مثلاً "قسم 2 - 15" يعني الطالب رقم 15 من القسم 2.
+                <strong>📌 ملاحظة:</strong> يمكنك كتابة أسماء الأقسام في الحقل العلوي، أو تركه فارغاً لأخذ الاسم الافتراضي.
             </div>
             
             <h2 class="section-title">🏛️ إعدادات القاعات</h2>
@@ -708,8 +702,9 @@
             '#d35400', '#c0392b', '#16a085', '#2980b9', '#8e44ad'
         ];
         
-        // تخزين أعداد الطلاب
+        // تخزين أعداد الطلاب وأسمائهم
         let studentCounters = {};
+        let departmentNames = {};
         
         // تهيئة الصفحة
         window.onload = function() {
@@ -721,7 +716,7 @@
             updateAllCalculations();
         };
         
-        // إنشاء حقول إدخال الأقسام
+        // إنشاء حقول إدخال الأقسام (العدد والاسم)
         function createDepartmentInputs() {
             const container = document.getElementById('departmentsInputs');
             let html = '';
@@ -729,10 +724,13 @@
             for (let i = 1; i <= departmentCount; i++) {
                 const color = deptColors[(i-1) % deptColors.length];
                 const randomCount = Math.floor(Math.random() * 50) + 30;
+                const deptName = departmentNames[i] || '';
                 html += `
                     <div class="dept-input" style="border-right-color: ${color}">
-                        <label>القسم ${i}:</label>
-                        <input type="number" id="dept${i}Count" value="${randomCount}" min="0" max="500" onchange="updateAllCalculations()">
+                        <label>اسم القسم ${i}:</label>
+                        <input type="text" class="dept-name-input" id="dept${i}Name" value="${deptName}" placeholder="القسم ${i}" onchange="updateDepartmentName(${i}, this.value)">
+                        <label>عدد الطلاب:</label>
+                        <input type="number" class="dept-count-input" id="dept${i}Count" value="${randomCount}" min="0" max="500" onchange="updateAllCalculations()">
                         <div style="margin-top: 8px; color: ${color}; font-weight: bold;" id="dept${i}Display">${randomCount} طالب</div>
                     </div>
                 `;
@@ -742,6 +740,22 @@
             updateLegend();
         }
         
+        // تحديث اسم القسم
+        function updateDepartmentName(deptId, name) {
+            departmentNames[deptId] = name;
+            updateLegend();
+            // إعادة التوزيع إذا كان هناك توزيع سابق
+            if (document.getElementById('hallsContainer').children.length > 0) {
+                checkAndDistribute();
+            }
+        }
+        
+        // الحصول على اسم القسم (مع الافتراضي)
+        function getDepartmentName(deptId) {
+            return departmentNames[deptId] && departmentNames[deptId].trim() !== '' ? 
+                   departmentNames[deptId].trim() : `القسم ${deptId}`;
+        }
+        
         // تحديث وسيلة الإيضاح
         function updateLegend() {
             const legend = document.getElementById('legend');
@@ -749,10 +763,11 @@
             
             for (let i = 1; i <= departmentCount; i++) {
                 const color = deptColors[(i-1) % deptColors.length];
+                const deptName = getDepartmentName(i);
                 html += `
                     <div class="legend-item">
                         <div class="legend-color" style="background: ${color};"></div>
-                        <strong>القسم ${i}</strong>
+                        <strong>${deptName}</strong>
                     </div>
                 `;
             }
@@ -774,6 +789,7 @@
         // حذف آخر قسم
         function removeLastDepartment() {
             if (departmentCount > 1) {
+                delete departmentNames[departmentCount];
                 departmentCount--;
                 createDepartmentInputs();
                 updateAllCalculations();
@@ -813,28 +829,19 @@
                     blockDiv.style.display = 'none';
                 }, 10000);
                 
-            } else if (totalStudents === totalSeats) {
-                // عدد متطابق - توزيع ورسالة نجاح
-                messageDiv.className = 'calculation-result success';
-                messageDiv.innerHTML = `
-                    ✅ تم التوزيع بنجاح! عدد الطلاب (${totalStudents}) يساوي عدد المقاعد (${totalSeats}) بالضبط.
-                `;
-                messageDiv.style.display = 'block';
-                
-                // تنفيذ التوزيع
-                distributeAllHalls();
-                
-                // إخفاء الرسالة بعد 5 ثواني
-                setTimeout(() => {
-                    messageDiv.style.display = 'none';
-                }, 5000);
-                
             } else {
-                // مقاعد زائدة - توزيع ورسالة تحذير
-                messageDiv.className = 'calculation-result warning';
-                messageDiv.innerHTML = `
-                    ⚠️ تم التوزيع مع وجود فائض. عدد الطلاب (${totalStudents}) أقل من عدد المقاعد (${totalSeats}) ب ${emptySeats} مقعد فارغ.
-                `;
+                // مقاعد كافية - توزيع ورسالة
+                if (totalStudents === totalSeats) {
+                    messageDiv.className = 'calculation-result success';
+                    messageDiv.innerHTML = `
+                        ✅ تم التوزيع بنجاح! عدد الطلاب (${totalStudents}) يساوي عدد المقاعد (${totalSeats}) بالضبط.
+                    `;
+                } else {
+                    messageDiv.className = 'calculation-result warning';
+                    messageDiv.innerHTML = `
+                        ⚠️ تم التوزيع مع وجود فائض. عدد الطلاب (${totalStudents}) أقل من عدد المقاعد (${totalSeats}) ب ${emptySeats} مقعد فارغ.
+                    `;
+                }
                 messageDiv.style.display = 'block';
                 
                 // تنفيذ التوزيع
@@ -879,7 +886,6 @@
             if (hall) {
                 hall[field] = parseInt(value) || 1;
                 renderHallSettings();
-                // لا نوزع تلقائياً، نترك المستخدم يضغط على زر التوزيع
                 updateAllCalculations();
             }
         }
@@ -930,6 +936,9 @@
                         <span class="hall-depts-badge" id="${hall.id}-depts">لم يتم التوزيع</span>
                     </div>
                 </div>
+                <div class="hall-board" id="${hall.id}-board">
+                    السبـــــــــورة
+                </div>
                 <div id="${hall.id}-content" class="groups-container">
                     <!-- محتوى القاعة سيتم توليده هنا -->
                 </div>
@@ -941,9 +950,30 @@
         // إعادة توزيع جميع القاعات
         function distributeAllHalls() {
             resetStudentCounters();
-            halls.forEach(hall => {
-                distributeSingleHall(hall);
-            });
+            
+            // توزيع الطلاب على القاعات
+            for (let hallIndex = 0; hallIndex < halls.length; hallIndex++) {
+                const hall = halls[hallIndex];
+                const result = distributeSingleHall(hall, hallIndex === halls.length - 1);
+                
+                // إذا كانت هذه آخر قاعة ولم يتم توزيع كل الطلاب
+                if (hallIndex === halls.length - 1 && result.remainingStudents > 0) {
+                    // نحاول إعادة توزيع الطلاب المتبقين على القاعات السابقة
+                    redistributeRemainingStudents(hallIndex, result.remainingStudents);
+                }
+            }
+        }
+        
+        // إعادة توزيع الطلاب المتبقين على القاعات السابقة
+        function redistributeRemainingStudents(currentHallIndex, remainingCount) {
+            // البحث عن مقاعد فارغة في القاعات السابقة
+            for (let i = 0; i < currentHallIndex; i++) {
+                const hall = halls[i];
+                const hallDisplay = document.getElementById(`${hall.id}-content`);
+                
+                // نحتاج للبحث عن مقاعد فارغة في هذه القاعة
+                // هذا يتطلب تحسين في المستقبل
+            }
         }
         
         // إعادة ضبط عدادات الطلاب
@@ -961,7 +991,7 @@
         }
         
         // توزيع قاعة واحدة
-        function distributeSingleHall(hall) {
+        function distributeSingleHall(hall, isLastHall = false) {
             let availableDepts = [];
             for (let i = 1; i <= departmentCount; i++) {
                 if (studentCounters[i] && studentCounters[i].current <= studentCounters[i].total) {
@@ -976,7 +1006,7 @@
             if (availableDepts.length === 0) {
                 document.getElementById(`${hall.id}-depts`).textContent = 'لا يوجد طلاب';
                 document.getElementById(`${hall.id}-content`).innerHTML = '<div style="text-align: center; padding: 20px;">لا يوجد طلاب للتوزيع</div>';
-                return;
+                return { remainingStudents: 0 };
             }
             
             availableDepts.sort((a, b) => b.remaining - a.remaining);
@@ -985,12 +1015,16 @@
             for (let i = 0; i < Math.min(3, availableDepts.length); i++) {
                 hallDepts.push({
                     id: availableDepts[i].id,
-                    color: availableDepts[i].color
+                    color: availableDepts[i].color,
+                    name: getDepartmentName(availableDepts[i].id)
                 });
             }
             
             document.getElementById(`${hall.id}-depts`).textContent = 
-                `الأقسام: ${hallDepts.map(d => d.id).join(' - ')}`;
+                `الأقسام: ${hallDepts.map(d => d.name).join(' - ')}`;
+            
+            // تحديث اسم السبورة - فقط "السبـــــــــورة"
+            document.getElementById(`${hall.id}-board`).textContent = `السبـــــــــورة`;
             
             let seats = [];
             
@@ -1010,10 +1044,12 @@
                             const studentNum = studentCounters[dept.id].current;
                             seats[group][col][row] = {
                                 dept: dept.id,
-                                number: studentNum
+                                number: studentNum,
+                                deptName: dept.name
                             };
                             studentCounters[dept.id].current++;
                         } else {
+                            // البحث عن قسم آخر به طلاب
                             let found = false;
                             for (let d of hallDepts) {
                                 if (studentCounters[d.id] && 
@@ -1021,7 +1057,8 @@
                                     const studentNum = studentCounters[d.id].current;
                                     seats[group][col][row] = {
                                         dept: d.id,
-                                        number: studentNum
+                                        number: studentNum,
+                                        deptName: d.name
                                     };
                                     studentCounters[d.id].current++;
                                     found = true;
@@ -1037,9 +1074,19 @@
             }
             
             displayHallContent(hall.id, seats, hall.numGroups, hall.numCols, hall.numRows, hallDepts);
+            
+            // حساب عدد الطلاب المتبقين
+            let remaining = 0;
+            for (let i = 1; i <= departmentCount; i++) {
+                if (studentCounters[i] && studentCounters[i].current <= studentCounters[i].total) {
+                    remaining += studentCounters[i].total - studentCounters[i].current + 1;
+                }
+            }
+            
+            return { remainingStudents: remaining };
         }
         
-        // عرض محتوى القاعة - مع إضافة السبورة بدون حركات
+        // عرض محتوى القاعة - تصميم عرضي
         function displayHallContent(hallId, seats, numGroups, numCols, numRows, hallDepts) {
             const container = document.getElementById(`${hallId}-content`);
             if (!container) return;
@@ -1050,38 +1097,22 @@
                 html += `
                     <div class="group">
                         <div class="group-header">📚 كروب ${group + 1}</div>
-                        
-                        <!-- السبورة - بدون حركات -->
-                        <div class="board-header">
-                            السبورة
-                        </div>
-                        
-                        <div class="columns-container">
+                        <div class="rows-container">
                 `;
                 
-                for (let col = 0; col < numCols; col++) {
-                    const firstSeat = seats[group][col][0];
-                    const deptId = firstSeat ? firstSeat.dept : (hallDepts[0]?.id || 1);
-                    const deptColor = hallDepts.find(d => d.id === deptId)?.color || '#95a5a6';
-                    
+                for (let row = 0; row < numRows; row++) {
                     html += `
-                        <div class="column">
-                            <div class="column-header" style="background: #2c3e50; border-bottom: 3px solid ${deptColor}">
-                                عمود ${col + 1}
-                            </div>
-                            
-                            <div class="column-dept-card" style="background: ${deptColor};">
-                                قسم ${deptId}
-                            </div>
+                        <div class="row">
+                            <div class="row-header">صف ${row + 1}</div>
                     `;
                     
-                    for (let row = 0; row < numRows; row++) {
+                    for (let col = 0; col < numCols; col++) {
                         const seat = seats[group][col][row];
                         if (seat) {
                             const seatColor = hallDepts.find(d => d.id === seat.dept)?.color || '#95a5a6';
                             html += `
                                 <div class="seat" style="background: ${seatColor}20; border: 2px solid ${seatColor};">
-                                    <span style="color: ${seatColor}; font-weight: bold;">${seat.dept}</span>
+                                    <span style="color: ${seatColor}; font-weight: bold;">${seat.deptName}</span>
                                     <span class="student-number" style="color: ${seatColor};">#${seat.number}</span>
                                 </div>
                             `;
@@ -1143,8 +1174,6 @@
                     display.textContent = `${input.value} طالب`;
                 }
             }
-            
-            // لا نوزع تلقائياً، نترك المستخدم يضغط على زر التوزيع
         }
         
         // =============== دالة تصدير PDF ===============
@@ -1179,9 +1208,15 @@
                 const tempContainer = document.getElementById('pdfExportContainer');
                 tempContainer.innerHTML = '';
                 
-                // ===== الصفحة الأولى: الملخص =====
+                // ===== الصفحة الأولى: الملخص مع الهيدر =====
                 tempContainer.innerHTML = `
                     <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; direction: rtl; background: white;">
+                        <div style="background: linear-gradient(135deg, #2c3e50 0%, #4a69bd 100%); color: white; text-align: center; padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+                            <h2 style="font-size: 2em; margin-bottom: 10px;">الجامعة التقنية الشمالية</h2>
+                            <h3 style="font-size: 1.5em; margin-bottom: 8px; color: #f1c40f;">الكلية التقنية الهندسية الموصل</h3>
+                            <h4 style="font-size: 1.2em; margin-bottom: 15px;">قسم تقنيات الصناعات الكيمياوية والنفطية</h4>
+                            <div style="font-size: 1.1em; padding-top: 10px; border-top: 2px dashed #f39c12; display: inline-block; color: #f39c12; font-weight: bold;">تصميم: عزام عصام</div>
+                        </div>
                         <h1 style="text-align: center; color: #333; margin-bottom: 30px;">📊 تقرير توزيع الطلاب في قاعات الامتحانات</h1>
                         <div style="margin-bottom: 30px;">${summaryBox.outerHTML}</div>
                         <div style="margin-bottom: 30px;">${legendBox.outerHTML}</div>
@@ -1215,7 +1250,7 @@
                         // إضافة القاعة مع ترويسة مناسبة للطباعة
                         tempContainer.innerHTML = `
                             <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; direction: rtl; background: white;">
-                                <div style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); color: white; margin: -20px -20px 20px -20px; padding: 20px; border-radius: 15px 15px 0 0;">
+                                <div style="background: linear-gradient(135deg, #2c3e50 0%, #4a69bd 100%); color: white; margin: -20px -20px 20px -20px; padding: 20px; border-radius: 15px 15px 0 0;">
                                     <h2 style="margin: 0;">🏛️ قاعة ${hall.id.split('-')[1]}</h2>
                                 </div>
                                 ${hallDisplay.outerHTML}
